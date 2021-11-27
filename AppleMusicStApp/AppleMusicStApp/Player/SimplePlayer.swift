@@ -9,42 +9,51 @@
 import AVFoundation
 
 class SimplePlayer {
-    static let shared = SimplePlayer()
+    // TODO: 싱글톤 만들기, 왜 만드는가?
+    
     
     private let player = AVPlayer()
-    
+
     var currentTime: Double {
-        return player.currentItem?.currentTime().seconds ?? 0
+        // TODO: currentTime 구하기
+        return 0.0
     }
     
     var totalDurationTime: Double {
-        return player.currentItem?.duration.seconds ?? 0
+        // TODO: totalDurationTime 구하기
+        return 0.0
     }
     
     var isPlaying: Bool {
-        return player.isPlaying
+        // TODO: isPlaying 구하기
+        return false
     }
     
     var currentItem: AVPlayerItem? {
-        return player.currentItem
+        // TODO: currentItem 구하기
+        return nil
     }
     
     init() { }
     
     func pause() {
-        player.pause()
+        // TODO: pause구현
+        
     }
     
     func play() {
-        player.play()
+        // TODO: play구현
+        
     }
     
     func seek(to time:CMTime) {
-        player.seek(to: time)
+        // TODO: seek구현
+        
     }
     
     func replaceCurrentItem(with item: AVPlayerItem?) {
-        player.replaceCurrentItem(with: item)
+        // TODO: replace current item 구현
+        
     }
     
     func addPeriodicTimeObserver(forInterval: CMTime, queue: DispatchQueue?, using: @escaping (CMTime) -> Void) {
