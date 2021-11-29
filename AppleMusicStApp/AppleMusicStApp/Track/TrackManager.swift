@@ -27,6 +27,7 @@ class TrackManager {
     // TODO: 트랙 로드하기
     func loadTracks() -> [AVPlayerItem] {
         // 파일들 읽어서 AVPlayerItem 만들기
+        // Bundle: 현재 파일 안에 있는 에셋들 가져올때
         let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil) ?? []
         let items = urls.map { url in
             return AVPlayerItem(url: url)
@@ -43,11 +44,20 @@ class TrackManager {
 
     // TODO: 앨범 로딩메소드 구현
     func loadAlbums(tracks: [AVPlayerItem]) -> [Album] {
-        return []
+        let trackList: [Track] = tracks.compactMap{ $0.convertToTrack() }
+        let albumDics = Dictionary(grouping: trackList, by: { (track) in track.albumName })
+        var albums: [Album] = []
+        for (key, value) in albumDics {
+            let title = key
+            let tracks = value
+            let album = Album(title: title, tracks: tracks)
+            albums.append(album)
+        }
+        return albums
     }
 
     // TODO: 오늘의 트랙 랜덤으로 선책
     func loadOtherTodaysTrack() {
-        
+        self.todaysTracks = self.tracks.randomElement()
     }
 }
