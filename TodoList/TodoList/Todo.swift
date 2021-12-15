@@ -31,29 +31,42 @@ struct Todo: Codable, Equatable {
 
 class TodoManager {
     
-    static let shared = TodoManager()
+    static let shared = TodoManager()           // 싱글톤 객체
     
     static var lastId: Int = 0
     
     var todos: [Todo] = []
     
     func createTodo(detail: String, isToday: Bool) -> Todo {
-        //TODO: create로직 추가
-        return Todo(id: 1, isDone: false, detail: "2", isToday: true)
+        // [x] TODO: create로직 추가
+        let nextId = TodoManager.lastId + 1
+        TodoManager.lastId = nextId
+        return Todo(id: nextId, isDone: false, detail: detail, isToday: isToday)
     }
     
     func addTodo(_ todo: Todo) {
-        //TODO: add로직 추가
+        // [x] TODO: add로직 추가
+        todos.append(todo)
+        saveTodo()
     }
     
     func deleteTodo(_ todo: Todo) {
-        //TODO: delete 로직 추가
+        // [x] TODO: delete 로직 추가
+        todos = todos.filter{ $0.id != todo.id }
+//            existingTodo in
+//            return existingTodo.id != todo.id}
         
+//        if let index = todos.firstIndex(of: todo) {
+//            todos.remove(at: index)
+//        }       // 알고리즘 성능은 이 부분이 좋다.
+        saveTodo()
     }
     
     func updateTodo(_ todo: Todo) {
         //TODO: updatee 로직 추가
-        
+        guard let index = todos.firstIndex(of: todo) else { return }
+        todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: todo.isToday)
+        saveTodo()
     }
     
     func saveTodo() {
