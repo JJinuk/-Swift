@@ -54,7 +54,7 @@ class TodoManager {
         // [x] TODO: delete 로직 추가
         todos = todos.filter{ $0.id != todo.id }
 //            existingTodo in
-//            return existingTodo.id != todo.id}
+//            return existingTodo.id != todo.id }
         
 //        if let index = todos.firstIndex(of: todo) {
 //            todos.remove(at: index)
