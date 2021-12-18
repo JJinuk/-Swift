@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// Codable은 struct => json 형태로 
 // TODO: Codable과 Equatable 추가
 struct Todo: Codable, Equatable {
     let id: Int                     // 구분자
@@ -71,6 +71,8 @@ class TodoManager {
     
     func saveTodo() {
         Storage.store(todos, to: .documents, as: "todos.json")
+        
+//        let json: [String: Any] // json을 swift에서 표현하는 법
     }
     
     func retrieveTodo() {
