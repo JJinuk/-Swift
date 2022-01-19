@@ -162,22 +162,40 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="md1-oy-MVa">
                                 <rect key="frame" x="0.0" y="95" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="heU-nm-pWw">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="heU-nm-pWw">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RSF-Kq-2DZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ResultCell" id="RSF-Kq-2DZ" customClass="ResultCell" customModule="MyNetflix" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mRA-Pk-c7h">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PPg-m3-ngm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="PPg-m3-ngm" secondAttribute="bottom" id="PXJ-Yr-elH"/>
+                                                <constraint firstItem="PPg-m3-ngm" firstAttribute="leading" secondItem="mRA-Pk-c7h" secondAttribute="leading" id="TUj-Qk-8tV"/>
+                                                <constraint firstItem="PPg-m3-ngm" firstAttribute="top" secondItem="mRA-Pk-c7h" secondAttribute="top" id="rDR-xn-UK0"/>
+                                                <constraint firstAttribute="trailing" secondItem="PPg-m3-ngm" secondAttribute="trailing" id="wBh-hJ-zqZ"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieThumbnail" destination="PPg-m3-ngm" id="7sg-PG-beQ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Lf4-yK-Bdw" id="m9h-xE-KJo"/>
+                                    <outlet property="delegate" destination="Lf4-yK-Bdw" id="zLr-e6-zEy"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n9k-jk-E7Q"/>
