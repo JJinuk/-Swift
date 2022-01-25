@@ -213,7 +213,7 @@
                     <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="UWE-ky-SQF"/>
                     <connections>
                         <outlet property="resultCollectionView" destination="md1-oy-MVa" id="qFs-8C-sna"/>
-                        <outlet property="searchBar" destination="ypV-Sx-o46" id="Lfi-vb-1pW"/>
+                        <outlet property="searchBar" destination="ypV-Sx-o46" id="6Uy-eZ-qUm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vi-cu-R4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
