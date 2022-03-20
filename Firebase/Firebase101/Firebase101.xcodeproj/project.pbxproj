@@ -14,7 +14,7 @@
 		B726AA1B27B7E907004AB087 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B726AA1927B7E907004AB087 /* Main.storyboard */; };
 		B726AA1D27B7E908004AB087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B726AA1C27B7E908004AB087 /* Assets.xcassets */; };
 		B726AA2027B7E908004AB087 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B726AA1E27B7E908004AB087 /* LaunchScreen.storyboard */; };
-		B726AA2A27B7EA61004AB087 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B726AA2927B7EA61004AB087 /* GoogleService-Info.plist */; };
+		B72F7FD527E74DD4008834A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B72F7FD427E74DD4008834A5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		B726AA1C27B7E908004AB087 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B726AA1F27B7E908004AB087 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B726AA2127B7E908004AB087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B726AA2927B7EA61004AB087 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B72F7FD427E74DD4008834A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 				B726AA1C27B7E908004AB087 /* Assets.xcassets */,
 				B726AA1E27B7E908004AB087 /* LaunchScreen.storyboard */,
 				B726AA2127B7E908004AB087 /* Info.plist */,
-				B726AA2927B7EA61004AB087 /* GoogleService-Info.plist */,
+				B72F7FD427E74DD4008834A5 /* GoogleService-Info.plist */,
 			);
 			path = Firebase101;
 			sourceTree = "<group>";
@@ -83,7 +83,6 @@
 				32DF4F22EA2E0CC979E19AA8 /* Pods-Firebase101.debug.xcconfig */,
 				A13BD17306C659E6D678E1B3 /* Pods-Firebase101.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B726AA2027B7E908004AB087 /* LaunchScreen.storyboard in Resources */,
-				B726AA2A27B7EA61004AB087 /* GoogleService-Info.plist in Resources */,
+				B72F7FD527E74DD4008834A5 /* GoogleService-Info.plist in Resources */,
 				B726AA1D27B7E908004AB087 /* Assets.xcassets in Resources */,
 				B726AA1B27B7E907004AB087 /* Main.storyboard in Resources */,
 			);

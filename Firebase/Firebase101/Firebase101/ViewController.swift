@@ -13,14 +13,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var numOfCustomers: UILabel!
     let db = Database.database().reference()
+    
+    var customers: [Customer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateLabel()
-//        saveBasicTypes()
+        saveBasicTypes()
 //        saveCustomers()
-        fetchCustomers()
+//        fetchCustomers()
+        
+        // update, delete
+//        updateBasicTypes()
+//        deleteBasicTypes()
     }
     
     func updateLabel() {
@@ -35,6 +41,36 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func createCustomer(_ sender: Any) {
+        saveCustomers()
+    }
+    
+    
+    @IBAction func fetchCustomer(_ sender: Any) {
+        fetchCustomers()
+
+    }
+    
+    func updateCustomers() {
+        guard customers.isEmpty == false else { return }
+        customers[0].name = "Min"
+        
+        let dictionary = customers.map { $0.toDictionary }
+        db.updateChildValues(["customers": dictionary])
+    }
+    
+    @IBAction func updateCustomer(_ sender: Any) {
+        updateCustomers()
+    }
+    
+    func deleteCustomers() {
+        db.child("customers").removeValue()
+    }
+    
+    @IBAction func deleteCustomer(_ sender: Any) {
+        deleteCustomers()
+    }
 }
 
 extension ViewController {
@@ -43,7 +79,7 @@ extension ViewController {
         // - string, number, dictionart, array
         
         db.child("int").setValue(3)
-        db.child("duble").setValue(3.5)
+        db.child("double").setValue(3.5)
         db.child("str").setValue("string value - 여러분 안녕")
         db.child("array").setValue(["a", "b", "c"])
         db.child("dict").setValue(["id": "anyID", "age": 10, "city": "seoul"])
@@ -79,6 +115,7 @@ extension ViewController {
                 let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
                 let decoder = JSONDecoder()
                 let customers: [Customer] = try decoder.decode([Customer].self, from: data)
+                self.customers = customers
                 DispatchQueue.main.async {
                     self.numOfCustomers.text = "# of Customers: \(customers.count)"
                 }
@@ -90,9 +127,28 @@ extension ViewController {
     }
 }
 
+extension ViewController {
+    func updateBasicTypes() {
+//        db.child("int").setValue(3)
+//        db.child("double").setValue(3.5)
+//        db.child("str").setValue("string value - 여러분 안녕")
+
+        db.updateChildValues(["int": 6])
+        db.updateChildValues(["double": 5.4])
+        db.updateChildValues(["str": "변경된 스트링"])
+        
+    }
+    
+    func deleteBasicTypes() {
+        db.child("int").removeValue()
+        db.child("duble").removeValue()
+        db.child("str").removeValue()
+    }
+}
+
 struct Customer: Codable {
     let id: String
-    let name: String
+    var name: String
     let books: [Book]
     
     var toDictionary: [String: Any] {
